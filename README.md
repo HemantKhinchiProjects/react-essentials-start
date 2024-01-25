@@ -1,4 +1,4 @@
-Q4. When we should use children prop in React?\
+Q4. When we should use children👶 prop in React?\
 Ans. React में, children prop का उपयोग component के opening और closing tags के बीच content को pass करने के लिए किया जाता है|\
 1- यह approach खासतौर पर जब component को एक single piece of renderable content receive करने के लिए design किया गया हो, तब beneficial होता है \
 2- children prop को opaque data structure माना जाता है, इसका मतलब है कि आपको इसके structure पर निर्भर नहीं होना चाहिए। आप Children methods का उपयोग transform, filter, या count children करने के लिए कर सकते हैं|\
