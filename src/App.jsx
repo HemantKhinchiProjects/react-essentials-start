@@ -1,4 +1,5 @@
 import { CORE_CONCEPTS } from "./data";
+import Header from "./components/Header";
 import Header from "./components/Header/Header";
 import CoreConcepts from "./components/CoreConcepts";
 
@@ -19,8 +20,9 @@ function App() {
             />
           </ul>
         </section>
+
         <section id="examples">
-          <h2>Time to get started!</h2>
+          <h2>Examples</h2>
           <menu></menu>
         </section>
       </main>
