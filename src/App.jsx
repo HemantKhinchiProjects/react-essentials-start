@@ -4,6 +4,13 @@ import CoreConcepts from "./components/CoreConcepts";
 import TabButton from "./components/TabButton";
 
 function App() {
+  let tabContent = "Please Click a Button";
+  function handlerClick(selectedButton) {
+    // selectedButton === "Components, JSX, Props, State"
+    // selectedButton === "Components"
+
+    tabContent = selectedButton;
+  }
   return (
     <div>
       <Header />
@@ -24,11 +31,18 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            <TabButton onTabClicker={() => handlerClick("component")}>
+              Components
+            </TabButton>
+            <TabButton onTabClicker={() => handlerClick("JSX")}>JSX</TabButton>
+            <TabButton onTabClicker={() => handlerClick("Props")}>
+              Props
+            </TabButton>
+            <TabButton onTabClicker={() => handlerClick("State")}>
+              State
+            </TabButton>
           </menu>
+          {tabContent}
         </section>
       </main>
     </div>
