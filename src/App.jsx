@@ -2,14 +2,16 @@ import { CORE_CONCEPTS } from "./data";
 import Header from "./components/Header/Header";
 import CoreConcepts from "./components/CoreConcepts";
 import TabButton from "./components/TabButton";
+import { useState } from "react";
+import { EXAMPLES } from "./data";
 
 function App() {
-  let tabContent = "Please Click a Button";
+  const [salectedTopic, setsalectedTopic] = useState("Components");
   function handlerClick(selectedButton) {
     // selectedButton === "Components, JSX, Props, State"
     // selectedButton === "Components"
-
-    tabContent = selectedButton;
+    setsalectedTopic(selectedButton);
+    console.log(salectedTopic);
   }
   return (
     <div>
@@ -31,7 +33,7 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onTabClicker={() => handlerClick("component")}>
+            <TabButton onTabClicker={() => handlerClick("Components")}>
               Components
             </TabButton>
             <TabButton onTabClicker={() => handlerClick("JSX")}>JSX</TabButton>
@@ -42,7 +44,13 @@ function App() {
               State
             </TabButton>
           </menu>
-          {tabContent}
+          <div id="tab-content">
+            <h3>{EXAMPLES[salectedTopic].title}</h3>
+            <p>{EXAMPLES[salectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[salectedTopic].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
