@@ -1,12 +1,12 @@
+import { useState } from "react";
 import { CORE_CONCEPTS } from "./data";
+import { EXAMPLES } from "./data";
 import Header from "./components/Header/Header";
 import CoreConcepts from "./components/CoreConcepts";
 import TabButton from "./components/TabButton";
-import { useState } from "react";
-import { EXAMPLES } from "./data";
 
 function App() {
-  const [salectedTopic, setsalectedTopic] = useState("Components");
+  const [salectedTopic, setsalectedTopic] = useState("components");
   function handlerClick(selectedButton) {
     // selectedButton === "Components, JSX, Props, State"
     // selectedButton === "Components"
@@ -33,14 +33,14 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onTabClicker={() => handlerClick("Components")}>
+            <TabButton onTabClicker={() => handlerClick("components")}>
               Components
             </TabButton>
-            <TabButton onTabClicker={() => handlerClick("JSX")}>JSX</TabButton>
-            <TabButton onTabClicker={() => handlerClick("Props")}>
+            <TabButton onTabClicker={() => handlerClick("jsx")}>JSX</TabButton>
+            <TabButton onTabClicker={() => handlerClick("props")}>
               Props
             </TabButton>
-            <TabButton onTabClicker={() => handlerClick("State")}>
+            <TabButton onTabClicker={() => handlerClick("state")}>
               State
             </TabButton>
           </menu>
