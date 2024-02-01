@@ -150,3 +150,51 @@ JavaScript
     <li key={item.id}>{item.name}</li>
   ))}
 </ul>
+//////////////////////////////////////////////////////////////////////////////////////
+Q6 What is forword props?
+Ans Forwarding Refs in React
+
+In React, forwardRef is a function used to create a new component that forwards a ref down to its underlying child component. A ref (short for "reference") allows you to establish a direct connection between a React component instance and its underlying DOM element.
+This is especially useful when you need to:
+Access and manipulate the child component's DOM node directly.
+Integrate third-party libraries that rely on DOM access.
+Implement imperative behaviors (e.g., focusing an input field or triggering animations).
+How forwardRef Works:
+
+Creating the forwarded component: You take a rendering function (render) as the argument to forwardRef. This function receives both the component's props and the ref as arguments.
+Conditionally passing the ref: Inside the render function, you decide whether to forward the ref based on the component's usage and your requirements. If appropriate, you pass the ref to the desired child component using the spread syntax (...rest).
+Returning the JSX: The forwarded component returns the JSX structure built in the render function, potentially incorporating the ref-enabled child component.
+Key Points:
+
+forwardRef is optional; if you don't need to forward refs, you can create components without it.
+It's commonly used with custom components that render other components (like buttons, inputs, or third-party libraries).
+Forwarding a ref doesn't modify the child component's behavior internally; it just provides a way to access its DOM node from outside.
+Example:
+
+JavaScript
+import React, { forwardRef } from 'react';
+
+const Button = forwardRef((props, ref) => {
+  // ... component implementation
+  return <button ref={ref} {...props}>Click me</button>;
+});
+
+function MyComponent() {
+  const buttonRef = useRef(null); // Create a ref
+
+  const handleClick = () => {
+    if (buttonRef.current) {
+      buttonRef.current.focus(); // Access the button's DOM node
+    }
+  };
+
+  return (
+    <div>
+      <Button ref={buttonRef} onClick={handleClick}>
+        Focus me on click
+      </Button>
+    </div>
+  );
+}
+Use code with caution. Learn more
+In this example, Button is a ref-forwarding component that passes the ref to the underlying button element. The MyComponent uses the ref to focus the button when clicked.
